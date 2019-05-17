@@ -32,7 +32,7 @@ class UsersController extends AbstractFOSRestController
      *
      * @return array
      */
-    public function postUserAction(Request $request)
+    public function postUsersAction(Request $request)
     {
         $user = new Users();
         $user->setFirstName($request->get('firstName'));
@@ -46,5 +46,21 @@ class UsersController extends AbstractFOSRestController
         $em->flush();
         return View::create($user, Response::HTTP_CREATED , []);
 
+    }
+
+    /**
+     * Lists all Users.
+     * @Rest\Get("/ListUsers")
+     *
+     * @return array
+     */
+    public function getUsersAction()
+    {
+        $repository = $this->getDoctrine()->getRepository(Users::class);
+
+        // query for a single Product by its primary key (usually "id")
+        $user = $repository->findall();
+
+        return View::create($user, Response::HTTP_OK , []);
     }
 }
