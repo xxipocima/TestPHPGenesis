@@ -44,7 +44,7 @@ class Users
         return $this->id;
     }
 
-    public function getFirstName(): ?string
+    public function getFirstName()
     {
         return $this->firstName;
     }
@@ -56,7 +56,7 @@ class Users
         return $this;
     }
 
-    public function getLastName(): ?string
+    public function getLastName()
     {
         return $this->lastName;
     }
@@ -68,19 +68,19 @@ class Users
         return $this;
     }
 
-    public function getPhoneNumbers(): ?array
+    public function getPhoneNumbers()
     {
         return $this->phoneNumbers;
     }
 
-    public function setPhoneNumbers(string $phoneNumbers): self
+    public function setPhoneNumbers(array $phoneNumbers): self
     {
-        $this->phoneNumbers[] = $phoneNumbers;
+        $this->phoneNumbers = $phoneNumbers;
 
         return $this;
     }
 
-    public function getActual(): ?bool
+    public function getActual()
     {
         return $this->actual;
     }

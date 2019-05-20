@@ -1,0 +1,12 @@
+# Read the documentation: https://github.com/FriendsOfSymfony/FOSElasticaBundle/blob/master/Resources/doc/setup.md
+fos_elastica:
+    clients:
+        default:
+            host: 127.0.0.1
+            port: 5432
+    indexes:
+        search:
+            finder: ~
+            client: default
+            types:
+                users:

@@ -1,0 +1,22 @@
+fos_elastica:
+    clients:
+        default:
+            host: 192.168.112.35
+            port: 8000
+    indexes:
+        search:
+            finder: ~
+            client: default
+            types:
+                users:
+                    properties:
+                        id:
+                            type: integer
+                        title: ~
+                        author: ~
+                    persistence:
+                        driver: orm
+                        model: AppBundle\Entity\Users
+                        finder: ~
+                        provider: ~
+                        listener: ~

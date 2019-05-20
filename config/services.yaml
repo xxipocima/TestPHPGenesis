@@ -5,6 +5,10 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
+    rabbitmq_host: 'localhost'
+    rabbitmq_user: 'my_username'
+    rabbitmq_password: 'my_password'
+    rabbitmq_statuslayer_vhost: 'my_project'
 
 services:
     # default configuration for services in *this* file

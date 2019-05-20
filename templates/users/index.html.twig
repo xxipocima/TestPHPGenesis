@@ -1,20 +1,42 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Hello UsersController!{% endblock %}
-
+{% extends "TwigBundle::layout.html.twig" %}
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1>Фильтр</h1>
+    <form>
+        <ul>
+            {% for option in options %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+                <li> {{ option.name }}
+                    <ul>
+                        {% for value in option.productsOptionValues  %}
+                            <li>
+                                <input type="checkbox" value="{{ value.value }}" name="filter[{{ option.name }}][{{ value.id }}]" {% if filter[option.name][value.id] is defined %} checked="checked" {% endif %} />
+                                {{ value.value }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+        <input type="submit" />
+    </form>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/fediukovaleksandr/essay/TestPHPGenesis/src/Controller/UsersController.php'|file_link(0) }}">src/Controller/UsersController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/fediukovaleksandr/essay/TestPHPGenesis/templates/users/index.html.twig'|file_link(0) }}">templates/users/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <h1>Товары</h1>
+
+    <table>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.name  }}</td>
+                <td>{{ product.price  }}</td>
+                <td>
+                    {% for option_value in product.productsOptionValues %}
+
+                        {{ option_value.productOption }} : {{ option_value.value }} <br />
+
+                    {% endfor %}
+
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
 {% endblock %}
