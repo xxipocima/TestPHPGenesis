@@ -1,40 +1,23 @@
-{% extends "TwigBundle::layout.html.twig" %}
+{% extends 'base.html.twig' %}
 {% block body %}
     <h1>Фильтр</h1>
     <form>
         <ul>
-            {% for option in options %}
-
-                <li> {{ option.name }}
-                    <ul>
-                        {% for value in option.productsOptionValues  %}
-                            <li>
-                                <input type="checkbox" value="{{ value.value }}" name="filter[{{ option.name }}][{{ value.id }}]" {% if filter[option.name][value.id] is defined %} checked="checked" {% endif %} />
-                                {{ value.value }}
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </li>
-            {% endfor %}
+            <input type="text" id="filter_user" name="filter"  maxlength="255">
         </ul>
         <input type="submit" />
     </form>
 
-    <h1>Товары</h1>
+    <h1>Юзеры</h1>
 
     <table>
-        {% for product in products %}
+        {% for users in users %}
             <tr>
-                <td>{{ product.name  }}</td>
-                <td>{{ product.price  }}</td>
+                <td>{{ users.firstName }}</td>
+                <td>{{ users.lastName }}</td>
                 <td>
-                    {% for option_value in product.productsOptionValues %}
-
-                        {{ option_value.productOption }} : {{ option_value.value }} <br />
-
-                    {% endfor %}
-
                 </td>
+                <td>{{ users.actual }}</td>
             </tr>
         {% endfor %}
     </table>

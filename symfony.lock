@@ -96,6 +96,49 @@
     "elasticsearch/elasticsearch": {
         "version": "v6.7.0"
     },
+    "enqueue/amqp-lib": {
+        "version": "0.7",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "0.7",
+            "ref": "c1cda31bd61f7454d77782bccd0a371335aa2ee6"
+        }
+    },
+    "enqueue/amqp-tools": {
+        "version": "0.9.8"
+    },
+    "enqueue/dsn": {
+        "version": "0.9.2"
+    },
+    "enqueue/enqueue": {
+        "version": "0.9.10"
+    },
+    "enqueue/enqueue-bundle": {
+        "version": "0.9",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "0.9",
+            "ref": "a025d0d707c6a7fefb8903f1c9844700dc69ee9d"
+        },
+        "files": [
+            "config/packages/enqueue.yaml",
+            "config/packages/test/enqueue.yaml"
+        ]
+    },
+    "enqueue/messenger-adapter": {
+        "version": "0.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "0.1",
+            "ref": "9a7119f609b576a30dbf03e4fe44212388e96ea1"
+        }
+    },
+    "enqueue/null": {
+        "version": "0.9.2"
+    },
     "facebook/webdriver": {
         "version": "1.6.0"
     },
@@ -245,6 +288,15 @@
     },
     "psr/simple-cache": {
         "version": "1.0.1"
+    },
+    "queue-interop/amqp-interop": {
+        "version": "0.8.1"
+    },
+    "queue-interop/queue-interop": {
+        "version": "0.8.0"
+    },
+    "ramsey/uuid": {
+        "version": "3.8.0"
     },
     "react/promise": {
         "version": "v2.7.1"
@@ -406,6 +458,18 @@
             "version": "1.0",
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
+    },
+    "symfony/messenger": {
+        "version": "4.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.1",
+            "ref": "2c72a5331d001fce2e8e8e94371b97afd5c32f34"
+        },
+        "files": [
+            "config/packages/messenger.yaml"
+        ]
     },
     "symfony/monolog-bridge": {
         "version": "v4.2.8"

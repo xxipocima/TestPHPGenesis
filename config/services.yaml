@@ -30,3 +30,6 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    app.consumer.mail_sender:
+        class: AppBundle\Consumer\MailSenderConsumer
+        arguments: ['@old_sound_rabbit_mq.delayed_send_email_producer']

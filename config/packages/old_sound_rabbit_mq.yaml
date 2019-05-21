@@ -1,15 +1,36 @@
+#config/packages/old_sound_rabbit_mq.yaml
 old_sound_rabbit_mq:
     connections:
         default:
-            url: '%env(RABBITMQ_URL)%'
-#    producers:
-#        # use 'old_sound_rabbit_mq.task_producer' service to send data.
-#        task:
-#            connection:       default
-#            exchange_options: { name: 'task', type: direct }
-#    consumers:
-#        task:
-#            connection:       default
-#            exchange_options: { name: 'task', type: direct }
-#            queue_options:    { name: 'task'}
-#            callback:         App\Consumer\TaskConsumer
+            host:     'localhost'
+            port:     15672
+            user:     'guest'
+            password: 'guest'
+            vhost:    '/'
+            lazy:     false
+            connection_timeout: 3
+            read_write_timeout: 3
+            keepalive: false
+            heartbeat: 0
+            use_socket: true
+    producers:
+        send_email:
+            connection:       default
+            exchange_options: { name: 'notification.v1.send_email', type: direct }
+
+        delayed_send_email:
+            connection: default
+            exchange_options:
+                name: 'notification.v1.send_email_delayed_30000'
+                type: direct
+            queue_options:
+                name: 'notification.v1.send_email_delayed_30000'
+                arguments:
+                    x-message-ttl: ['I', 30000]
+                    x-dead-letter-exchange: ['S', 'notification.v1.send_email']
+    consumers:
+        send_email:
+            connection:       default
+            exchange_options: { name: 'notification.v1.send_email', type: direct }
+            queue_options:    { name: 'notification.v1.send_email' }
+            callback:         app.consumer.mail_sender

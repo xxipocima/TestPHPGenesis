@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
+use Symfony\Component\Form\FormInterface;
 use App\Entity\Users;
 use App\Form\UserAdd;
 
@@ -17,62 +18,29 @@ use App\Form\UserAdd;
 class UsersController extends AbstractFOSRestController
 {
     /**
-     * @Rest\Get("/users", name="users")
+     * @Route("/users", name="users")
      */
 
-    public function getAction()
+    public function getAction(Request $request)
     {
         $repository = $this->getDoctrine()->getRepository(Users::class);
-
-        // query for a single Product by its primary key (usually "id")
-        $user = $repository->findall();
-        //$request = $this->get('request');
-        if(!empty($filter))
-        {
-            $finder = $this->container->get('fos_elastica.finder.user');
-
-            $andOuter = new \Elastica\Filter\Bool();
-            foreach($filter as $optionKey=>$arrValues)
-            {
-
-                $orOuter = new \Elastica\Filter\Bool();
-                foreach($arrValues as $value)
-                {
-
-                    $andInner = new \Elastica\Filter\Bool();
-                    $optionKeyTerm = new \Elastica\Filter\Term();
-                    $optionKeyTerm->setTerm('productOptionValues.productOption', $optionKey);
-
-                    $valueTerm = new \Elastica\Filter\Term();
-                    $valueTerm->setTerm('productOptionValues.value', $value);
-                    $andInner->addMust($optionKeyTerm);
-                    $andInner->addMust($valueTerm);
-
-                    $orOuter->addShould($andInner);
-                }
-                $andOuter->addMust($orOuter);
-            }
-
-            $filtered = new \Elastica\Query\Filtered();
-            $filtered->setFilter($andOuter);
-            $user = $finder->find($filtered);
+        $filter = $request->query->get('filter');
+        if (!empty($filter)) {
+            $user = $repository->findBy(array('firstName' => $filter),array('firstName' => 'ASC'),5 ,0);
+        }else{
+            $user = $repository->findall();
         }
-        else
-        {
-            //$filter = $request->query->get('filter');
-        }
-        //return $this->render('TestBundle:Default:filter.html.twig', array('users' => $user, 'filter' => $filter));
-        return View::create($user, Response::HTTP_OK , []);
+        return $this->render('users/index.html.twig', array('users' => $user));
     }
 
     /**
      * Create User.
-     * @Rest\get("/user" , name="register")
+     * @Route("/user" , name="register")
      *
      * @param Request $request
      * @return View|Response
      */
-    public function postUsersAction(Request $request)
+    public function postUsersAction(Request $request): Response
     {
         $user = new Users();
         $form = $this->createForm(UserAdd::class, $user);
@@ -82,10 +50,12 @@ class UsersController extends AbstractFOSRestController
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-            return View::create($user, Response::HTTP_CREATED , []);
+            return $this->redirectToRoute('users');
         }
 
-        return View::create($user, Response::HTTP_CREATED , []);
+        return $this->render('registration/register.html.twig', [
+            'registrationForm' => $form->createView(),
+        ]);
 
     }
 
@@ -111,18 +81,4 @@ class UsersController extends AbstractFOSRestController
             $em->flush();
             return View::create($user, Response::HTTP_CREATED, []);
     }
-
-    protected function verification(Request $request)
-    {
-
-        $message = ["Type"=>"VerificationEmail","Firstname"=>$request->get('firstName'),"Lastname"=>$request->get('lastName'),"Phonenumbers"=>$request->get('phoneNumbers')];
-        $rabbitMessage = json_encode($message);
-
-        $this->get('old_sound_rabbit_mq.emailing_producer')->setContentType('application/json');
-        $this->get('old_sound_rabbit_mq.emailing_producer')->publish($rabbitMessage);
-
-        return new JsonResponse(array('Status' => 'OK'));
-    }
-
-
 }

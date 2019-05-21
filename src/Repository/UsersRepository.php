@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Users;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\ORM\EntityRepository;
 
 /**
  * @method Users|null find($id, $lockMode = null, $lockVersion = null)
@@ -12,39 +13,43 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  * @method Users[]    findAll()
  * @method Users[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class UsersRepository extends ServiceEntityRepository
+class UsersRepository extends EntityRepository
 {
-    public function __construct(RegistryInterface $registry)
+    /**
+     * @param Users $user
+     * @return Users[]
+     */
+    public function findAllForUser(Users $user)
     {
-        parent::__construct($registry, Users::class);
+        return $this->findBy(array('user' => $user));
     }
 
-    // /**
-    //  * @return Users[] Returns an array of Users objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param $nickname
+     * @return Users
+     */
+    public function findOneByNickname($nickname)
     {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('u.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        return $this->findOneBy(array('firstName' => $nickname));
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Users
+    public function findAllQueryBuilder($filter = '')
     {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $qb = $this->createQueryBuilder('users');
+        if ($filter) {
+            $qb->andWhere('users.firstName LIKE :filter OR users.lastName LIKE :filter')
+                ->setParameter('filter', '%'.$filter.'%');
+        }
+        return $qb;
     }
-    */
+
+    public function findAllQueryBuilders($filter = '')
+    {
+        $qb = $this->createQueryBuilder('users');
+        if ($filter) {
+            $qb->andWhere('users.firstName LIKE :filter OR users.lastName LIKE :filter')
+                ->setParameter('filter', '%'.$filter.'%');
+        }
+        return $qb;
+    }
 }
