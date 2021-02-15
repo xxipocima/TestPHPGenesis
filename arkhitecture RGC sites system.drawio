@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-02-15T16:27:31.903Z" agent="5.0 (X11)" etag="bwcXLHPGf5mXH-EzBvhO" version="14.3.1" type="github">
+<mxfile host="app.diagrams.net" modified="2021-02-15T16:32:15.722Z" agent="5.0 (X11)" etag="GmTSHZvyITCsNhoiVeFW" version="14.3.1" type="github">
   <diagram name="Page-1" id="b5b7bab2-c9e2-2cf4-8b2a-24fd1a2a6d21">
     <mxGraphModel dx="1358" dy="804" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="0">
       <root>
@@ -256,6 +256,9 @@
         </mxCell>
         <mxCell id="V_HkRfYwTx9WXYbwms5C-5" value="&lt;b&gt;Elasticserch&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=top;spacingTop=-4;fontSize=10;fontFamily=Verdana" vertex="1" parent="1">
           <mxGeometry x="441" y="960" width="120" height="25.5" as="geometry" />
+        </mxCell>
+        <mxCell id="V_HkRfYwTx9WXYbwms5C-9" value="" style="shape=mxgraph.bpmn.shape;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=rhombusPerimeter;background=gateway;outlineConnect=0;outline=none;symbol=complexGw;fontColor=#ffffff;fillColor=#FFFF00;" vertex="1" parent="1">
+          <mxGeometry x="739" y="985.5" width="33" height="34" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
