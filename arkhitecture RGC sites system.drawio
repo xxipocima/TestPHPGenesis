@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-02-15T10:15:29.367Z" agent="5.0 (X11)" etag="4pFgHwzPcuiANTTLzdWe" version="14.3.1" type="github">
+<mxfile host="app.diagrams.net" modified="2021-02-15T10:27:33.238Z" agent="5.0 (X11)" etag="cxURdfsl-c_fSwJ3cQ7y" version="14.3.1" type="github">
   <diagram name="Page-1" id="b5b7bab2-c9e2-2cf4-8b2a-24fd1a2a6d21">
     <mxGraphModel dx="1598" dy="946" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="0">
       <root>
@@ -19,6 +19,13 @@
         <mxCell id="6e0c8c40b5770093-27" value="MiniO Image" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=50;tabHeight=17;tabPosition=left;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=10;align=center;" parent="6e0c8c40b5770093-24" vertex="1">
           <mxGeometry x="160" y="65.83" width="107.91" height="58.33" as="geometry" />
         </mxCell>
+        <mxCell id="RUcSScGEnjRAHkHzcu0g-60" style="edgeStyle=elbowEdgeStyle;rounded=0;jumpSize=10;orthogonalLoop=1;jettySize=auto;elbow=vertical;html=1;entryX=0.25;entryY=0.325;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;startArrow=open;startFill=0;startSize=10;endArrow=open;endFill=0;endSize=10;targetPerimeterSpacing=0;strokeWidth=1;" edge="1" parent="6e0c8c40b5770093-24" source="6e0c8c40b5770093-31" target="6e0c8c40b5770093-25">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="120" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
         <mxCell id="6e0c8c40b5770093-31" value="MiniO Video" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=50;tabHeight=17;tabPosition=left;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=10;align=center;" parent="6e0c8c40b5770093-24" vertex="1">
           <mxGeometry x="160" y="170.83" width="107.91" height="58.33" as="geometry" />
         </mxCell>
@@ -27,6 +34,19 @@
         </mxCell>
         <mxCell id="RUcSScGEnjRAHkHzcu0g-9" value="Image storage CDN" style="text;html=1;align=left;verticalAlign=top;spacingTop=-4;fontSize=10;fontFamily=Verdana" vertex="1" parent="6e0c8c40b5770093-24">
           <mxGeometry width="180.86956521739128" height="21.25" as="geometry" />
+        </mxCell>
+        <mxCell id="RUcSScGEnjRAHkHzcu0g-58" style="edgeStyle=elbowEdgeStyle;rounded=0;jumpSize=10;orthogonalLoop=1;jettySize=auto;elbow=vertical;html=1;entryX=0;entryY=0;entryDx=0;entryDy=37.665000000000006;entryPerimeter=0;dashed=1;startArrow=open;startFill=0;startSize=10;endArrow=open;endFill=0;endSize=10;targetPerimeterSpacing=0;strokeWidth=1;" edge="1" parent="6e0c8c40b5770093-24" source="RUcSScGEnjRAHkHzcu0g-56" target="6e0c8c40b5770093-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RUcSScGEnjRAHkHzcu0g-59" style="edgeStyle=elbowEdgeStyle;rounded=0;jumpSize=10;orthogonalLoop=1;jettySize=auto;elbow=vertical;html=1;entryX=0;entryY=0;entryDx=0;entryDy=37.665000000000006;entryPerimeter=0;dashed=1;startArrow=open;startFill=0;startSize=10;endArrow=open;endFill=0;endSize=10;targetPerimeterSpacing=0;strokeWidth=1;" edge="1" parent="6e0c8c40b5770093-24" source="RUcSScGEnjRAHkHzcu0g-56" target="6e0c8c40b5770093-28">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="40" y="321" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RUcSScGEnjRAHkHzcu0g-56" value="Nginx" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=50;tabHeight=17;tabPosition=left;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeColor=#000000;strokeWidth=1;fillColor=#ffffff;fontFamily=Verdana;fontSize=10;fontColor=#000000;align=center;" vertex="1" parent="6e0c8c40b5770093-24">
+          <mxGeometry x="20" y="65.83" width="112" height="60" as="geometry" />
         </mxCell>
         <mxCell id="6e0c8c40b5770093-67" style="edgeStyle=none;rounded=0;html=1;entryX=0.43;entryY=0.173;entryPerimeter=0;dashed=1;labelBackgroundColor=none;startFill=0;endArrow=open;endFill=0;endSize=10;fontFamily=Verdana;fontSize=10;exitX=0.084;exitY=1.019;exitDx=0;exitDy=0;exitPerimeter=0;startArrow=open;startSize=10;" parent="1" source="6e0c8c40b5770093-33" target="6e0c8c40b5770093-47" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -174,8 +194,8 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="RUcSScGEnjRAHkHzcu0g-45" value="" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=123;tabHeight=24;tabPosition=left;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=10;align=center;" vertex="1" parent="1">
-          <mxGeometry x="840" y="910" width="332" height="130" as="geometry" />
+        <mxCell id="RUcSScGEnjRAHkHzcu0g-45" value="&lt;pre&gt;&lt;code&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&amp;lt;?&lt;br/&gt;$m = new Memcache;&lt;br/&gt;$m-&amp;gt;addServer(&lt;b&gt;&#39;10.5.0.1&#39;&lt;/b&gt;);&lt;br/&gt;$m-&amp;gt;addServer(&lt;b&gt;&#39;10.5.0.2&#39;&lt;/b&gt;);&lt;br/&gt;...&lt;br/&gt;$m-&amp;gt;get(&#39;user1&#39;)&lt;/code&gt;&lt;/pre&gt;" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=123;tabHeight=24;tabPosition=left;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="840" y="910" width="332" height="210" as="geometry" />
         </mxCell>
         <mxCell id="RUcSScGEnjRAHkHzcu0g-46" value="Balancer" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=50;tabHeight=17;tabPosition=left;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=10;align=center;" vertex="1" parent="1">
           <mxGeometry x="858" y="950" width="112" height="70" as="geometry" />
